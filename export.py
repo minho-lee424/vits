@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 from typing import Optional
 
 import onnx
@@ -73,6 +74,8 @@ def export_onnx(model_path, config_path, output_path):
     scales = torch.FloatTensor([0.667, 1.0, 0.8])
     dummy_input = (sequences, sequence_lengths, scales, sid)
 
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
     # Export
     torch.onnx.export(
         model=model_g,
@@ -102,8 +105,8 @@ def export_onnx(model_path, config_path, output_path):
     with open(config_path, "r") as f:
         config = json.load(f)
 
-    with open(output_path + ".json", "w") as f:
-        json.dump(config, f, indent=2)
+    with open(output_path + ".json", "w", encoding="utf-8") as f:
+        json.dump(config, f, ensure_ascii=False, indent=2)
 
 
 if __name__ == "__main__":
