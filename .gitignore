@@ -8,3 +8,7 @@ monotonic_align/core.c
 infer/*
 datasets/*
 checkpoints/*
+
+filelist_*.txt
+*.json
+wavs*
