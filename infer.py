@@ -1,4 +1,5 @@
 import argparse
+import os
 
 import torch
 from scipy.io.wavfile import write
@@ -65,6 +66,8 @@ class vits:
 
 
 def infer(model, config, sid, text, output_path):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
     tts = vits(model, config)
     tts.infer(text, output_path, sid)
 
