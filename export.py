@@ -82,7 +82,7 @@ def export_onnx(model_path, config_path, output_path):
         args=dummy_input,
         f=output_path,
         verbose=False,
-        opset_version=15,
+        opset_version=13,
         input_names=["input", "input_lengths", "scales", "sid"],
         output_names=["output"],
         dynamic_axes={
