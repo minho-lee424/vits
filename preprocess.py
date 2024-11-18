@@ -6,7 +6,7 @@ if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument("--text_index", default=1, type=int, help="index of text column in filelist")
   parser.add_argument("--filelists", nargs="+", required=True, help="filelists to be saved")
-  parser.add_argument("--text_cleaners", nargs="+", default=["korean_cleaners"], help="text cleaners")
+  parser.add_argument("--text_cleaners", nargs="+", default=["japanese_cleaners2"], help="text cleaners")
 
   args = parser.parse_args()
     
